@@ -14,11 +14,18 @@
             <h2>Random Knowledge Quizz</h2>
             
         <button id="startbtn">Start Code Quiz</button>
-        <button id="Highscore" onclick="showHighscore()">High Scores</button>
+        <button id="Highscore" >High Scores</button>
         </div>
 <!-- End of Start page -->
 
-<!-- Write your comments here -->
+<div id="levels">
+    <h3>Choose your level: <br>Easy- 20 seconds per question <br>Hard- 10 seconds per question</h3>
+    <button id="easy">Easy</button>
+    <button id="hard">Hard</button>
+
+</div>
+
+<!-- Quiz part -->
         <div id="quiz">
             <div id="timer">Time: </div>
 
@@ -33,7 +40,11 @@
                 </div>
 
         </div>
-<!-- Write your comments here -->
+
+        <!-- Quiz part End-->
+
+
+<!-- Gameover-->
 
         <div id="gameover">
 
@@ -41,8 +52,9 @@
             <input type="text" size = "40" placeholder="Enter you initials for high score" name="intials" id="initials"/>
             <button id="submitScore">Submit Score</button>
         </div>
+        <!-- Gameover End-->
 
-        <!-- Write your comments here -->
+        <!-- highscore-->
         <div id=highscoreContainer>
         <div id="highscorePage">
             <div id="highscore-header">
@@ -50,16 +62,18 @@
                 <h3>Score</h3>
             </div>
             <div id = "highscore-initials"></div>
-            <div id = "highscore-score"></div>
+            <div id = "highscoreList"></div>
         </div>
-<!-- Write your comments here -->
+       
+
+        <div id="endGame">
+            <button id="playAgain" >Play Again</button>
+            <button id="clearHighscore" >Clear Highscores</button>
+        </div>
+     </div>
+     <!-- highscore End-->
+    </div>
 
 
-        <div id="endGameBtns">
-            <button id="playAgain" onclick="replayQuiz()">Play Again</button>
-            <button id="clearHighscore" onclick="clearScore()">Clear Highscores</button>
-        </div>
-    </div>
-    </div>
     <script src="script.js"></script>
 </body>

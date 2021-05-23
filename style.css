@@ -81,10 +81,10 @@
         display: none;
         width: 50%;
         border: solid;
-        border-color: silver;
+        border-color: rgb(148, 46, 131);
         border-bottom-style: groove;
         padding-bottom: .3rem;
-        background: lightsteelblue;
+        background: rgb(131, 52, 114);
     }
     
     #highscore-header{
@@ -92,7 +92,7 @@
         justify-content: space-around;
         border-bottom-style: outset;
         margin-bottom: .5rem;
-        background-color: #5e6df1;
+        background-color: #732b7c;
         color: #eeeeee;
         
     }
@@ -112,13 +112,13 @@
     
     #highscore-initials{
         display: inline-block;
-        padding-left: 9.5rem;
+        padding-left: 22%;
         font-weight: bold;
     }
     
-    #highscore-score{
+    #highscoreList{
         float: right;
-        padding-right: 8.75rem;
+        padding-right: 24%;
         font-weight: bold;
     }
     
@@ -129,6 +129,12 @@
         font-weight: bold;
     }
     
-    #endGameBtns{
-        display: none;
+    #endGame{
+      
+        position: absolute; bottom: 0;
+        
     }
+
+ 
+    
+    
