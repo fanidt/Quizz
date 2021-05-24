@@ -55,6 +55,7 @@ var quizQuestions = [{
 var time=0;
 var score=0;
 var i=0;
+var timing;
 
 var questionsEl = document.getElementById("questions");
 var buttonA = document.getElementById("a");
@@ -80,9 +81,6 @@ var highscorebtn= document.getElementById("Highscore")
 var PlayAgain= document.getElementById("playAgain")
 var Clear= document.getElementById("clearHighscore")
 var endgame= document.getElementById("endGame")
-
-/*var numberOfQuestions= parseInt(quizQuestions.lenght)
-var finalQuestion= quizQuestions[quizQuestions.lenght]; */ //FIXME
 var finalQuestion= quizQuestions[6]
 
 
@@ -111,44 +109,34 @@ function StartGame() {
 
 //Easy function starts the game 
 function levelEasy() {
+    time = 60 ;
+    QuizShow.style.display = "block";
     Startpage.style.display = "none";
     levelsPage.style.display= "none";
-
     Question()
-    time = 20 ; //FIXME number times the lenght of the object
-    
-    setInterval (function timer () {
+   timing= setInterval (function timer () {
         time--;
-    
     QuizTimer.textContent = "Time:" + time;
-
-    if (time==0){ showScore()}
-
+    if (time==0){ clearInterval(timer)
+         showScore();}
     } ,1000);
     
-    QuizShow.style.display = "block";
-
 }
 
 //Hard game function
 function levelHard() {
+    time = 30; 
+    QuizShow.style.display = "block";
     Startpage.style.display = "none";
     levelsPage.style.display= "none";
-
-    Question()
-    time = 10;      //FIXME
-    
-    setInterval (function timer () {
+    Question()   
+    timing = setInterval (function timer () {
         time--;
+         QuizTimer.textContent = "Time:" + time;
+        if (time==0){ clearInterval(timer)
+             showScore();}
+         } ,1000);
     
-    QuizTimer.textContent = "Time:" + time;
-
-    if (time==0){ showScore()}
-    
-    } ,1000);
-    
-    QuizShow.style.display = "block";
-
 }
 
 //Show score
@@ -186,11 +174,16 @@ function CheckAnswer(answer) {
         result.innerHTML = "Incorrect"
         result.style.display = "block";
         i++
+        time= time-3;
         Question();
     }
 
-    else if (quizQuestions[i]===finalQuestion){ showScore()}
+    else if (quizQuestions[i]===finalQuestion && quizQuestions[i].correctAnswer=== answer){ 
+        score++
+        showScore()}
 
+    else if  (quizQuestions[i]===finalQuestion && quizQuestions[i].correctAnswer!== answer)
+{showScore()}
   
 } 
 
@@ -200,66 +193,73 @@ function CheckAnswer(answer) {
 function highscore(){
 time =0; 
    
-
+Startpage.style.display="none";
     QuizShow.style.display = "none";
     highScoreContainer.style.display = "block";
     gameover.style.display = "none";
     result.style.display = "none";
-    if (inputName.value===""){
-        inputName= "Player" 
-    }
+    endgame.style.display= "block"
 
-    
-
-
+ 
+    var savedHighscores= JSON.parse(localStorage.getItem("savedHighscores"))||[];
+    inputName = inputName.value.trim();
     var currentScore = {
         name : inputName,
         score : score
     };
 
-    var SavedHighscores= JSON.parse(localStorage.getItem("SavedHighscores"))||[];
-   SavedHighscores.push(currentScore)
+   
+    savedHighscores.push(currentScore)
+   localStorage.setItem("savedHighscores", JSON.stringify(savedHighscores));
+
+  
 
 
-for (var a=0; a<SavedHighscores.length; a++)
-{
-
-    var namelist= document.createElement("li");
-    var scorelist=document.createElement("li");
-    namelist.textContent= SavedHighscores[a].name;
-    scorelist.textContent= SavedHighscores[a].score;
-
-    
-
-    highscoreInitials.appendChild(namelist);
-    highscorelist.appendChild(scorelist);
-}
-
-    
-}
+   highscoreInitials.innerHTML= ""
+   highscorelist.innerHTML= ""
+   var Highscores =JSON.parse(localStorage.getItem("savedHighscores")) || [];
 
 
-
-
-
-//show highscore
-function ShowHighscore(){
-    
-    highscore()
-
-    QuizShow.style.display = "none";
-    highScoreContainer.style.display = "block";
-    gameover.style.display = "none";
-    result.style.display = "none";
-    Startpage.style.display="none";
-endgame.style.display="block"
+   for (var a=0; a<Highscores.length; a++)
+   {
+   
+       
+       var namelist= document.createElement("li");
+       var scorelist=document.createElement("li");
+       namelist.textContent= Highscores[a].name;
+       scorelist.textContent= Highscores[a].score;
+   
+       
+   
+       highscoreInitials.appendChild(namelist);
+       highscorelist.appendChild(scorelist);
+   }
 }
 
 
 //replay function
+function replay(){
+score =0
+i=0
+time=0;
+clearInterval(timing)
 
 
+QuizShow.style.display = "none";
+    highScoreContainer.style.display = "none";
+    gameover.style.display = "none";
+    result.style.display = "none";
+    Startpage.style.display="flex";
+endgame.style.display="none"
 
+}
+
+//clear 
+function clear() {
+    window.localStorage.clear();
+    highscoreInitials.textContent = "";
+    highscorelist.textContent = "";
+}
 
 
 // button working
@@ -267,6 +267,6 @@ startButton.addEventListener("click",StartGame);
 easybtn.addEventListener("click",levelEasy);
 hardbtn.addEventListener("click",levelHard);
 submitScore.addEventListener("click", highscore)
-highscorebtn.addEventListener("click",ShowHighscore)
-PlayAgain.addEventListener("click",)
-Clear.addEventListener("click",)
+highscorebtn.addEventListener("click",highscore)
+PlayAgain.addEventListener("click",replay)
+Clear.addEventListener("click",clear)
