@@ -1,5 +1,7 @@
 # Quizz
 
+https://fanidt.github.io/Quizz/
+
 Random knowledge quiz 
 When time ends score is submitted.
 Initials and highscores are saved in local storage 
