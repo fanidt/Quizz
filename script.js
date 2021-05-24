@@ -82,6 +82,7 @@ var PlayAgain= document.getElementById("playAgain")
 var Clear= document.getElementById("clearHighscore")
 var endgame= document.getElementById("endGame")
 var finalQuestion= quizQuestions[6]
+var mySound;
 
 
 // question generation function
@@ -161,6 +162,8 @@ function CheckAnswer(answer) {
 
     if (quizQuestions[i].correctAnswer=== answer && quizQuestions[i]!=finalQuestion)
     {
+        mySound=new Audio ("sound1.mp3")
+        mySound.play()
     score++
     result.innerHTML = "Correct"
     result.style.display = "block";
