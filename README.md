@@ -1,6 +1,6 @@
 # Quizz
 
-  ##Link to deployed application/Repository: <br />
+  ## Link to deployed application/Repository: <br />
   https://fanidt.github.io/Quizz/
 
  # Table of contents <br />
