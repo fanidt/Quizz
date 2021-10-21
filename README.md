@@ -3,7 +3,7 @@
   ##Link to deployed application/Repository: <br />
   https://fanidt.github.io/Quizz/
 
- #Table of contents <br />
+ # Table of contents <br />
  -[Description](##Description) <br />
  -[Badges](##Badges) <br />
   -[Screenshot](##Screenshot) <br />
@@ -15,33 +15,33 @@
  -[Authors](##Authors) <br />
  -[License](##Licence) <br />
 
-  ##Description: <br />
+  ## Description: <br />
   Random knowledge quiz
 
   
-  ##Screenshot: <br />
+  ## Screenshot: <br />
     ![alt text](https://github.com/fanidt/Quizz/blob/main/images/Screen%20Shot%202021-05-23%20at%2010.06.45%20PM.png)
   
-  ##Installation: <br />
+  ## Installation: <br />
   No installation required
 
-  ##Usage: <br />
+  ## Usage: <br />
   Open the website, select a level and answer the questions!!
 
-  ##Support: <br />
+  ## Support: <br />
   Contact us by email at: deltorofanie@gmail.com <br />
   Contact us at Github at: https://github.com/fanidt
 
-  ##Roadmap: <br />
+  ## Roadmap: <br />
   Add more levels <br /> Add more questions
 
-  ##Contributions: <br />
+  ## Contributions: <br />
   NO CONTRIBUTIONS ALLOWED
 
-  ##Authors: <br />
+  ## Authors: <br />
   fanidt
   
-  ##Licence: <br />
+  ## Licence: <br />
   Unlicensed <br />
 
 
