@@ -20,7 +20,7 @@
 
   
   ## Screenshot: <br />
-    ![alt text](https://github.com/fanidt/Quizz/blob/main/images/Screen%20Shot%202021-05-23%20at%2010.06.45%20PM.png)
+   ![alt text](https://github.com/fanidt/Quizz/blob/main/images/Screen%20Shot%202021-05-23%20at%2010.06.45%20PM.png)
   
   ## Installation: <br />
   No installation required
